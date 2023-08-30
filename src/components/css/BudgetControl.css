@@ -1,0 +1,8 @@
+.billsContainer {
+    border-radius: 10px;
+    width: 700px;
+    height: 300px;
+    background-color: white;
+    box-shadow: 3.5px 3.5px 8px grey;
+
+}
