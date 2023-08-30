@@ -5,12 +5,19 @@ type BillsListProps = {
 }
 
 function BillsList(props: BillsListProps) {
-    const {budget} = props
+    const { budget } = props
+
+    function formatToUSD(value: number): string {
+        return value.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        })
+    }
 
     return (
         <div id="bills">
             <button id="resetbutton">RESETEAR APP</button>
-            <Label title="Presupuesto:" value={"$" + budget} />
+            <Label title="Presupuesto:" value={formatToUSD(budget)} />
             <Label title="Disponible:" value="$200" />
             <Label title="Gastado:" value="$0" />
         </div>
