@@ -9,7 +9,7 @@ type AddBudgetProps = {
 }
 
 function AddBudget(props: AddBudgetProps) {
-    const {budget, setBudget} = props
+    const {budget, setBudget, setIsSendedBudget} = props
     const [showMessage, setShowMessage] = useState<boolean>(false)
 
     const handleOnChangeBadget = (event: ChangeEvent<HTMLInputElement>) => {
@@ -20,9 +20,12 @@ function AddBudget(props: AddBudgetProps) {
 
     const handleOnSubmit = (event: ChangeEvent<HTMLFormElement>) => {
         event.preventDefault()
-        if(parseFloat(budget) > 0)
-           return setShowMessage(false)
-        // alert("El presupuesto tiene que ser mayor a 0")
+        if(parseFloat(budget) > 0){
+            setShowMessage(false)
+            setIsSendedBudget(true)
+            return 
+        }
+    
         setShowMessage(true) 
     }
 
