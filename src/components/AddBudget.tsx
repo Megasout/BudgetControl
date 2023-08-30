@@ -1,13 +1,14 @@
-import { ChangeEvent } from "react"
+import { ChangeEvent, useState } from "react"
 import "./css/AddBudget.css"
 
-type AddBudgetProp = {
+type AddBudgetProps = {
     budget: string,
     setBudget: (value: string) => void
 }
 
-function AddBudget(prop: AddBudgetProp) {
-    const {budget, setBudget} = prop
+function AddBudget(props: AddBudgetProps) {
+    const {budget, setBudget} = props
+    const [showMessage, setShowMessage] = useState<boolean>(false)
 
     const handleOnChangeBadget = (event: ChangeEvent<HTMLInputElement>) => {
         if (/^(\d+(\.\d*)?)?$/.test(event.target.value)) {
@@ -15,9 +16,17 @@ function AddBudget(prop: AddBudgetProp) {
         }
     }
 
+    const handleOnSubmit = (event: ChangeEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        if(parseFloat(budget) > 0)
+           return setShowMessage(false)
+        // alert("El presupuesto tiene que ser mayor a 0")
+        setShowMessage(true) 
+    }
+
     return (
         <div className="formcolumn">
-        <form>
+        <form onSubmit={handleOnSubmit}>
             <label htmlFor="textInput">Definir Presupuesto</label>
             <input
                 id="textInput"
@@ -25,6 +34,7 @@ function AddBudget(prop: AddBudgetProp) {
                 type="text"
                 value={budget}
                 onChange={handleOnChangeBadget} />
+            {(showMessage) && <p>El presupuesto tiene que ser mayor a 0</p>}
             <input className="buttonInput" type="submit" value={"Añadir"} />
         </form>
     </div>
