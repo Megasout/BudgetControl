@@ -5,6 +5,11 @@ import NewBillIcon from "./assets/nuevo.png"
 function App() {
   const [budget, setBudget] = useState<string>("0")
   const [isSendedBudget, setIsSendedBudget] = useState<boolean>(false)
+  const [modal, setModal] = useState<boolean>(false)
+
+  const handleOnClickNewBills = () => {
+    setModal(true)
+  }
 
   return (
     <div>
@@ -17,7 +22,8 @@ function App() {
       {(isSendedBudget) &&
         <img id="newBill"
           src={NewBillIcon}
-          alt="Icono Nuevo Gasto" />}
+          alt="Icono Nuevo Gasto" 
+          onClick={handleOnClickNewBills}/>}
     </div>
   )
 }
