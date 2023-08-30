@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react"
 import "./css/AddBudget.css"
+import Message from "./Message"
 
 type AddBudgetProps = {
     budget: string,
@@ -34,7 +35,7 @@ function AddBudget(props: AddBudgetProps) {
                 type="text"
                 value={budget}
                 onChange={handleOnChangeBadget} />
-            {(showMessage) && <p>El presupuesto tiene que ser mayor a 0</p>}
+            {(showMessage) && <Message>El presupuesto tiene que ser mayor a 0</Message>}
             <input className="buttonInput" type="submit" value={"Añadir"} />
         </form>
     </div>
