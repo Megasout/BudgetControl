@@ -1,0 +1,14 @@
+:root{
+    --message-color: #dc143c;
+}
+
+.message{
+    border-left: 5px solid var(--message-color);
+    border-right: 5px solid var(--message-color);
+    padding-left: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    text-align: center;
+    background-color: #f6f8fa;
+    color: var(--message-color);
+}

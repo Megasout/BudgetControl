@@ -1,9 +1,13 @@
-import { useState } from "react"
 import AddBudget from "./AddBudget"
 import "./css/Header.css"
 
-function Header() {
-    const [budget, setBudget] = useState<string>("0")
+type HeaderProps = {
+    budget: string,
+    setBudget: (value: string) => void
+}
+
+function Header(props: HeaderProps) {
+    const {budget, setBudget} = props
 
     return (
            <div>
