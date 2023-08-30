@@ -15,10 +15,13 @@ function Header(props: HeaderProps) {
         <div>
             <div className="banner">
                 <h1 className="title">Planificador de Gastos</h1>
-                <AddBudget
-                    budget={budget}
-                    setBudget={setBudget}
-                    setIsSendedBudget={setIsSendedBudget} />
+                {(!isSendedBudget) ?
+                    <AddBudget
+                        budget={budget}
+                        setBudget={setBudget}
+                        setIsSendedBudget={setIsSendedBudget} /> :
+                    <h1>Gastos</h1>
+                }
             </div>
         </div>
     )
