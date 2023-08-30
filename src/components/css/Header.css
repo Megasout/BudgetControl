@@ -1,0 +1,20 @@
+.banner{
+    background-color: steelblue;
+    height: 300px;
+    display: grid;
+    place-items: center;
+    overflow-wrap: break-word;
+
+}
+
+.title{
+    text-align: center;
+    color: white;
+}
+
+@media (max-width: 730px){
+    .banner{
+        display: grid;
+        place-items: center;
+    }
+}

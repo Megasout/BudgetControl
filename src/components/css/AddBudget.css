@@ -1,0 +1,98 @@
+:root {
+    --InputMargin: 70px;
+    --InputMarginRedux: calc(70px - calc(487px - 100vw));
+
+}
+
+.formcolumn {
+    border-radius: 10px;
+    width: 700px;
+    height: 300px;
+    background-color: white;
+    box-shadow: 3.5px 3.5px 8px grey;
+
+}
+
+form {
+    display: grid;
+    padding-left: var(--InputMargin);
+    padding-right: var(--InputMargin);
+}
+
+label {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    color: #3b82f6;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+#textInput {
+    margin-bottom: 15px;
+    height: 35px;
+    border-color: steelblue;
+    border-radius: 5px;
+    text-align: center;
+    font-size: x-large;
+}
+
+.buttonInput {
+    background-color: #6A5ACD;
+    color: white;
+    outline: 2px steelblue;
+    border: none;
+    height: 38px;
+    text-transform: uppercase;
+
+}
+
+.buttonInput:hover {
+    cursor: pointer;
+    background-color: #594DAB;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 730px) {
+    .formcolumn {
+        width: 95vw;
+    }
+}
+
+@media (max-width: 487px) {
+    .formcolumn {
+        width: 90vw;
+    }
+
+    form {
+        display: grid;
+        padding-left: var(--InputMarginRedux);
+        padding-right: var(--InputMarginRedux);
+    }
+}
+
+@media (max-width: 335px) {
+    .formcolumn {
+        width: 85vw;
+    }
+
+    form {
+        display: grid;
+        padding-left: 0;
+        padding-right: 0;
+        width: 85vw;
+    }
+
+    #textInput{
+        width: 81.5vw;
+    }
+
+    .buttonInput{
+        width: 85vw;
+    }
+}
