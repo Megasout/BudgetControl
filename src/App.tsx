@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Header from "./components/Header"
 import NewBillIcon from "./assets/nuevo.png"
+import Modal from "./components/modal"
 
 function App() {
   const [budget, setBudget] = useState<string>("0")
@@ -24,6 +25,10 @@ function App() {
           src={NewBillIcon}
           alt="Icono Nuevo Gasto" 
           onClick={handleOnClickNewBills}/>}
+
+        {(modal) &&
+        <Modal setModal={setModal}/>
+        }
     </div>
   )
 }

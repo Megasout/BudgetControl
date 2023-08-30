@@ -1,0 +1,19 @@
+#modal {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.832);
+}
+
+#modal-close {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 3rem;
+    top: 3rem;
+}
+#modal-close:hover {
+    cursor: pointer;
+}
