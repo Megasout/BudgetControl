@@ -1,16 +1,24 @@
 import { useState } from "react"
 import Header from "./components/Header"
+import NewBillIcon from "./assets/nuevo.png"
 
 function App() {
   const [budget, setBudget] = useState<string>("0")
   const [isSendedBudget, setIsSendedBudget] = useState<boolean>(false)
 
   return (
-    <Header
-      budget={budget}
-      setBudget={setBudget}
-      isSendedBudget={isSendedBudget}
-      setIsSendedBudget={setIsSendedBudget} />
+    <div>
+      <Header
+        budget={budget}
+        setBudget={setBudget}
+        isSendedBudget={isSendedBudget}
+        setIsSendedBudget={setIsSendedBudget} />
+
+      {(isSendedBudget) &&
+        <img id="newBill"
+          src={NewBillIcon}
+          alt="Icono Nuevo Gasto" />}
+    </div>
   )
 }
 
