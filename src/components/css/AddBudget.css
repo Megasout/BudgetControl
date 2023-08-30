@@ -34,7 +34,6 @@ label:hover {
 }
 
 #textInput {
-    margin-bottom: 15px;
     height: 35px;
     border-color: steelblue;
     border-radius: 5px;
@@ -43,6 +42,7 @@ label:hover {
 }
 
 .buttonInput {
+    margin-top: 15px;
     background-color: #6A5ACD;
     color: white;
     outline: 2px steelblue;
@@ -56,6 +56,11 @@ label:hover {
     cursor: pointer;
     background-color: #594DAB;
     transition: background-color 0.3s ease;
+}
+
+p{
+    color: brown;
+    text-transform: uppercase;
 }
 
 @media (max-width: 730px) {
