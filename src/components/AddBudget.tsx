@@ -5,6 +5,7 @@ import Message from "./Message"
 type AddBudgetProps = {
     budget: string,
     setBudget: (value: string) => void
+    setIsSendedBudget: (value: boolean) => void
 }
 
 function AddBudget(props: AddBudgetProps) {
