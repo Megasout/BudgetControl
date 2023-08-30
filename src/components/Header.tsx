@@ -21,7 +21,7 @@ function Header(props: HeaderProps) {
                         budget={budget}
                         setBudget={setBudget}
                         setIsSendedBudget={setIsSendedBudget} /> :
-                    <BudgetControl />
+                    <BudgetControl budget={parseFloat(budget)}/>
                 }
             </div>
         </div>

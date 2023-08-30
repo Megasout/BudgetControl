@@ -1,10 +1,16 @@
 import "./css/BillsList.css"
 
-function BillsList() {
+type BillsListProps = {
+    budget: number
+}
+
+function BillsList(props: BillsListProps) {
+    const {budget} = props
+
     return (
         <div id="bills">
             <button id="resetbutton">RESETEAR APP</button>
-            <Label title="Presupuesto:" value="$200" />
+            <Label title="Presupuesto:" value={"$" + budget} />
             <Label title="Disponible:" value="$200" />
             <Label title="Gastado:" value="$0" />
         </div>
