@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Header from "./components/Header"
-import NewBillIcon from "./assets/nuevo.png"
-import Modal from "./components/modal"
+import NewBillIcon from "./assets/nuevo.svg"
+import Modal from "./components/Modal"
 
 function App() {
   const [budget, setBudget] = useState<string>("0")

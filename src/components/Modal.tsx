@@ -1,5 +1,5 @@
 import "./css/Modal.css"
-import CloseIcon from "../assets/cerrar.png"
+import CloseIcon from "../assets/cerrar.svg"
 
 type ModalProps = {
     setModal(value: boolean): void
