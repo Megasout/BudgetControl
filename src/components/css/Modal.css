@@ -4,7 +4,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.832);
+    background-color: rgba(0, 0, 0, 0.721);
 }
 
 #modal-close {
@@ -16,4 +16,27 @@
 }
 #modal-close:hover {
     cursor: pointer;
+}
+
+#modal-form{
+    display: grid;
+    place-items: center;
+
+}
+
+#modal-title{
+    text-align: center;
+    margin-top: 4rem;
+    color: white;
+    font-size: xx-large;
+    border-bottom: 3px solid crimson;
+    width: 500px;
+}
+
+.modal-input{
+
+}
+
+.modal-label{
+    
 }
