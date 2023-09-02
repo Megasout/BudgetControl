@@ -13,7 +13,6 @@ function Modal(props: ModalProps) {
 
     useEffect(() => {
         setTimeout(() => {
-            console.log('Animando')
             setAnimation(true)
         }
             , 400)
@@ -23,13 +22,12 @@ function Modal(props: ModalProps) {
         setAnimation(false)
 
         setTimeout(() => {
-            console.log('Animando')
             setModal(false)
         }
-            , 400)
+            , 500)
     }
 
-    const formClass = (animation) ? 'modal-form-animation' : ''
+    const formClass = (animation) ? 'modal-form-animation' : 'modal-form-animation-closing'
 
     return (
         <div id="modal">
@@ -38,6 +36,7 @@ function Modal(props: ModalProps) {
                 src={CloseIcon}
                 alt="Icono de Cierre"
                 onClick={handleCloseButton} />
+
             <form className={"modal-form" + ' ' + formClass}>
                 <legend id="modal-title">Nuevo Gasto</legend>
                 <label
@@ -56,18 +55,19 @@ function Modal(props: ModalProps) {
                     className="modal-input"
                     type="number"
                     placeholder="Añade la Cantidad del Gasto: ej.300" />
+
                 <label className="modal-label">Filtrar Gasto</label>
-                <select id="modal-select">
-                    <option>-- Seleccionar --</option>
-                    <option value={"Ahorro"}>Comida</option>
-                    <option value={"Comida"}>Comida</option>
-                    <option value={"Hogar"}>Hogar</option>
-                    <option value={"Otros Gastos"}>Comida</option>
-                    <option value={"Entretenimiento"}>Entretenimiento</option>
-                    <option value={"Salud"}>Salud</option>
-                    <option value={"Suscripiones"}>Suscripiones</option>
+                <select id="modal-select" >
+                    <option style={{ textAlign: 'center' }}>-- Seleccionar --</option>
+                    <option value={"Ahorro"}>{'>>> '}Ahorro</option>
+                    <option value={"Comida"}>{'>>> '}Comida</option>
+                    <option value={"Hogar"}>{'>>> '}Hogar</option>
+                    <option value={"Otros Gastos"}>{'>>> '}Otros Gastos</option>
+                    <option value={"Entretenimiento"}>{'>>> '}Entretenimiento</option>
+                    <option value={"Salud"}>{'>>> '}Salud</option>
+                    <option value={"Suscripiones"}>{'>>> '}Suscripiones</option>
                 </select>
-                <input id="modal-submit" type="submit" />
+                <input id="modal-submit" type="submit" value="Añadir Gasto"/>
             </form>
         </div>
     )
