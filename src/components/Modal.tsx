@@ -58,12 +58,12 @@ function Modal(props: ModalProps) {
                     placeholder="Añade la Cantidad del Gasto: ej.300" />
                 <label className="modal-label">Filtrar Gasto</label>
                 <select id="modal-select">
-                    <option>--Seleccionar--</option>
+                    <option>-- Seleccionar --</option>
                     <option value={"Ahorro"}>Comida</option>
                     <option value={"Comida"}>Comida</option>
                     <option value={"Hogar"}>Hogar</option>
                     <option value={"Otros Gastos"}>Comida</option>
-                    <option value={"Ocio"}>Ocio</option>
+                    <option value={"Entretenimiento"}>Entretenimiento</option>
                     <option value={"Salud"}>Salud</option>
                     <option value={"Suscripiones"}>Suscripiones</option>
                 </select>
