@@ -1,25 +1,20 @@
-:root {
-    --InputMargin: 70px;
-    --InputMarginRedux: calc(70px - calc(487px - 100vw));
-
-}
-
-.formcolumn {
+.addBudget{
     border-radius: 10px;
     width: 700px;
     height: 300px;
     background-color: white;
     box-shadow: 3.5px 3.5px 8px grey;
-
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
 }
 
-form {
+.addBudget form {
     display: grid;
-    padding-left: var(--InputMargin);
-    padding-right: var(--InputMargin);
+    width: 85%;
 }
 
-label {
+.addBudget label {
     margin-top: 4rem;
     margin-bottom: 1rem;
     color: #3b82f6;
@@ -29,20 +24,23 @@ label {
     font-size: 1.5rem;
 }
 
-label:hover {
+.addBudget label:hover {
     cursor: pointer;
 }
 
-#textInput {
+.addBudget #textInput {
     height: 35px;
+    width: 100%;
     border-color: steelblue;
+    box-sizing: border-box;
     border-radius: 5px;
     text-align: center;
     font-size: x-large;
 }
 
-.buttonInput {
+.addBudget .buttonInput {
     margin-top: 15px;
+    width: 100%;
     background-color: #6A5ACD;
     color: white;
     outline: 2px steelblue;
@@ -52,52 +50,19 @@ label:hover {
 
 }
 
-.buttonInput:hover {
+.addBudget .buttonInput:hover {
     cursor: pointer;
     background-color: #594DAB;
     transition: background-color 0.3s ease;
 }
 
-p{
+.addBudget p{
     color: brown;
     text-transform: uppercase;
 }
 
 @media (max-width: 730px) {
-    .formcolumn {
-        width: 95vw;
-    }
-}
-
-@media (max-width: 487px) {
-    .formcolumn {
-        width: 90vw;
-    }
-
-    form {
-        display: grid;
-        padding-left: var(--InputMarginRedux);
-        padding-right: var(--InputMarginRedux);
-    }
-}
-
-@media (max-width: 335px) {
-    .formcolumn {
-        width: 85vw;
-    }
-
-    form {
-        display: grid;
-        padding-left: 0;
-        padding-right: 0;
-        width: 85vw;
-    }
-
-    #textInput{
-        width: 81.5vw;
-    }
-
-    .buttonInput{
-        width: 85vw;
+    .addBudget{
+        width: 95%;
     }
 }
