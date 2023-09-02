@@ -30,7 +30,7 @@ function AddBudget(props: AddBudgetProps) {
     }
 
     return (
-        <div className="formcolumn">
+        <div className="addBudget">
         <form onSubmit={handleOnSubmit}>
             <label htmlFor="textInput">Definir Presupuesto</label>
             <input
