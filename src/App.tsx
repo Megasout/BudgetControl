@@ -23,14 +23,20 @@ function App() {
       {(isSendedBudget) &&
         <img id="newBill"
           src={NewBillIcon}
-          alt="Icono Nuevo Gasto" 
-          onClick={handleOnClickNewBills}/>}
+          alt="Icono Nuevo Gasto"
+          onClick={handleOnClickNewBills} />}
 
-        {(modal) &&
-        <Modal setModal={setModal}/>
-        }
+      {(modal) &&
+        <Modal setModal={setModal} />
+      }
     </div>
   )
 }
 
 export default App
+
+export type BillType = {
+  name: string
+  value: string
+  type: string
+}

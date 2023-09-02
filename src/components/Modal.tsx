@@ -1,6 +1,7 @@
 import "./css/Modal.css"
 import CloseIcon from "../assets/cerrar.svg"
-import { useEffect, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
+import { BillType } from "../App"
 
 type ModalProps = {
     setModal(value: boolean): void
@@ -11,12 +12,20 @@ function Modal(props: ModalProps) {
 
     const [animation, setAnimation] = useState<boolean>(false)
 
+    const [bill, setBill] = useState<BillType>({
+        name: '',
+        type: '',
+        value: ''
+    })
+
     useEffect(() => {
         setTimeout(() => {
             setAnimation(true)
         }
             , 400)
     }, [])
+
+    const { name, type, value } = bill
 
     const handleCloseButton = () => {
         setAnimation(false)
@@ -46,6 +55,8 @@ function Modal(props: ModalProps) {
                     id="name"
                     className="modal-input"
                     type="text"
+                    value={name}
+                    onChange={(event) => setBill({ ...bill, name: event.target.value })}
                     placeholder="Añade el Nombre del Gasto" />
                 <label
                     htmlFor="cantidad"
@@ -54,11 +65,18 @@ function Modal(props: ModalProps) {
                     id="cantidad"
                     className="modal-input"
                     type="number"
+                    value={value}
+                    onChange={(event) => setBill({ ...bill, value: event.target.value })}
                     placeholder="Añade la Cantidad del Gasto: ej.300" />
 
                 <label className="modal-label">Filtrar Gasto</label>
-                <select id="modal-select" >
-                    <option style={{ textAlign: 'center' }}>-- Seleccionar --</option>
+                <select
+                    value={type}
+                    onChange={event => setBill({ ...bill, type: event.target.value })}
+                    id="modal-select" >
+                    <option
+                        value={''}
+                        style={{ textAlign: 'center' }}>-- Seleccionar --</option>
                     <option value={"Ahorro"}>{'>>> '}Ahorro</option>
                     <option value={"Comida"}>{'>>> '}Comida</option>
                     <option value={"Hogar"}>{'>>> '}Hogar</option>
@@ -67,7 +85,7 @@ function Modal(props: ModalProps) {
                     <option value={"Salud"}>{'>>> '}Salud</option>
                     <option value={"Suscripiones"}>{'>>> '}Suscripiones</option>
                 </select>
-                <input id="modal-submit" type="submit" value="Añadir Gasto"/>
+                <input id="modal-submit" type="submit" value="Añadir Gasto" />
             </form>
         </div>
     )
