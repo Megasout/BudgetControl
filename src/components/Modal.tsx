@@ -16,7 +16,7 @@ function Modal(props: ModalProps) {
             console.log('Animando')
             setAnimation(true)
         }
-        , 400)
+            , 400)
     }, [])
 
     const handleCloseButton = () => {
@@ -26,7 +26,7 @@ function Modal(props: ModalProps) {
             console.log('Animando')
             setModal(false)
         }
-        , 400)
+            , 400)
     }
 
     const formClass = (animation) ? 'modal-form-animation' : ''
@@ -40,13 +40,19 @@ function Modal(props: ModalProps) {
                 onClick={handleCloseButton} />
             <form className={"modal-form" + ' ' + formClass}>
                 <legend id="modal-title">Nuevo Gasto</legend>
-                <label className="modal-label">Nombre del Gasto</label>
+                <label
+                    htmlFor="name"
+                    className="modal-label">Nombre del Gasto</label>
                 <input
+                    id="name"
                     className="modal-input"
                     type="text"
                     placeholder="Añade el Nombre del Gasto" />
-                <label className="modal-label">Cantidad</label>
+                <label
+                    htmlFor="cantidad"
+                    className="modal-label">Cantidad</label>
                 <input
+                    id="cantidad"
                     className="modal-input"
                     type="number"
                     placeholder="Añade la Cantidad del Gasto: ej.300" />
