@@ -7,9 +7,16 @@ function App() {
   const [budget, setBudget] = useState<string>("0")
   const [isSendedBudget, setIsSendedBudget] = useState<boolean>(false)
   const [modal, setModal] = useState<boolean>(false)
+  const [bills, setBills] = useState<Array<BillType>>([])
 
   const handleOnClickNewBills = () => {
     setModal(true)
+  }
+
+  function handleAddBill(bill: BillType) {
+    let billsT = [...bills]
+    billsT.push(bill)
+    setBills(billsT)
   }
 
   return (
@@ -27,7 +34,7 @@ function App() {
           onClick={handleOnClickNewBills} />}
 
       {(modal) &&
-        <Modal setModal={setModal} />
+        <Modal addBill={handleAddBill} setModal={setModal} />
       }
     </div>
   )

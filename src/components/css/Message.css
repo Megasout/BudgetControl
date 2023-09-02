@@ -11,4 +11,6 @@
     text-align: center;
     background-color: #f6f8fa;
     color: var(--message-color);
+    width: 100%;
+    box-sizing: border-box;
 }
