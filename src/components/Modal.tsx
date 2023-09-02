@@ -9,10 +9,6 @@ type ModalProps = {
 function Modal(props: ModalProps) {
     const { setModal } = props
 
-    const handleCloseButton = () => {
-        setModal(false)
-    }
-
     const [animation, setAnimation] = useState<boolean>(false)
 
     useEffect(() => {
@@ -20,8 +16,18 @@ function Modal(props: ModalProps) {
             console.log('Animando')
             setAnimation(true)
         }
-        , 500)
+        , 400)
     }, [])
+
+    const handleCloseButton = () => {
+        setAnimation(false)
+
+        setTimeout(() => {
+            console.log('Animando')
+            setModal(false)
+        }
+        , 400)
+    }
 
     const formClass = (animation) ? 'modal-form-animation' : ''
 

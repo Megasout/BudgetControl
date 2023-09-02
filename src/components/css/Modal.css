@@ -31,10 +31,10 @@
     padding-right: 43px;
     padding-left: 43px;
     opacity: 0;
+    transition: opacity 0.3s ease-in;
 }
 
 .modal-form-animation{
-    transition: opacity 0.3s ease-in;
     opacity: 1;
     /* background-color: red; */
 }
