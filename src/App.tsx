@@ -6,7 +6,7 @@ import Modal from "./components/Modal"
 import { Helpers } from "./helpers"
 
 import NewBillIcon from "./assets/nuevo.svg"
-import BillsList from "./components/BillsList"
+import BillsList from "./components/BillsComponents/BillsList"
 
 
 function App() {

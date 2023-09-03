@@ -33,3 +33,9 @@
     text-align: right;
     flex: 1;
 }
+
+@media (max-width: 730px) {
+    #billsContainer{
+        width: 95%;
+    }
+}

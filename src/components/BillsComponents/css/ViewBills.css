@@ -1,0 +1,45 @@
+.labelTitle{
+    color: steelblue;
+}
+
+.labelValue{
+    color: black;
+    font-weight: normal;
+}
+
+#bills{
+    flex: 1;
+    margin-right: 25px;
+}
+
+@media (max-width: 667px){
+    #bills{
+        width: 100%;
+        margin-right: 0px;
+    }
+}
+
+#resetbutton{
+    color: white;
+    background-color: crimson;
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+}
+
+#resetbutton:hover{
+    background-color: #c21235;
+    cursor: pointer;
+    transition: background-color 0.3 ease;
+}
+
+@media (max-width: 440px){
+    #bills{
+        width: 100%;
+    }
+
+    #resetbutton{
+        width: 100%;
+    }
+}

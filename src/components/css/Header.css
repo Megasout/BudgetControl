@@ -1,20 +1,19 @@
-.banner{
+.backgroundBanner{
+    position: absolute;
+    top: 0px;
     background-color: steelblue;
     height: 300px;
+    width: 100%;
+    z-index: -1;
+}
+
+.banner{
     display: grid;
     place-items: center;
     overflow-wrap: break-word;
-
 }
 
 .title{
     text-align: center;
     color: white;
-}
-
-@media (max-width: 730px){
-    .banner{
-        display: grid;
-        place-items: center;
-    }
 }

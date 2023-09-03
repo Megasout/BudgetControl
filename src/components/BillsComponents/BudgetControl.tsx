@@ -1,4 +1,4 @@
-import BillsList from "./BillsComponents/BillsList"
+import ViewBills from "./ViewBills"
 import "./css/BudgetControl.css"
 
 type BudgetControlProps= {
@@ -11,7 +11,7 @@ function BudgetControl(props: BudgetControlProps) {
     return (
         <div className="billsContainer">
             <p id="grafic">Grafica</p>
-            <BillsList budget={budget}/>
+            <ViewBills budget={budget}/>
         </div>
     )
 }
