@@ -6,6 +6,7 @@ import Modal from "./components/Modal"
 import { Helpers } from "./helpers"
 
 import NewBillIcon from "./assets/nuevo.svg"
+import BillsList from "./components/BillsList"
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
 
   function handleAddBill(bill: BillType) {
     let billsT = [...bills]
-    billsT.push({...bill, id: Helpers.generateId()})
+    billsT.push({ ...bill, id: Helpers.generateId() })
     setBills(billsT)
   }
 
@@ -37,6 +38,8 @@ function App() {
           src={NewBillIcon}
           alt="Icono Nuevo Gasto"
           onClick={handleOnClickNewBills} />}
+
+      <BillsList />
 
       {(modal) &&
         <Modal addBill={handleAddBill} setModal={setModal} />
