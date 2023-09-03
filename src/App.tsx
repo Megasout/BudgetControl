@@ -1,7 +1,12 @@
 import { useState } from "react"
+
 import Header from "./components/Header"
-import NewBillIcon from "./assets/nuevo.svg"
 import Modal from "./components/Modal"
+
+import { Helpers } from "./helpers"
+
+import NewBillIcon from "./assets/nuevo.svg"
+
 
 function App() {
   const [budget, setBudget] = useState<string>("0")
@@ -15,7 +20,7 @@ function App() {
 
   function handleAddBill(bill: BillType) {
     let billsT = [...bills]
-    billsT.push(bill)
+    billsT.push({...bill, id: Helpers.generateId()})
     setBills(billsT)
   }
 
@@ -43,6 +48,7 @@ function App() {
 export default App
 
 export type BillType = {
+  id?: string
   name: string
   value: string
   type: string
