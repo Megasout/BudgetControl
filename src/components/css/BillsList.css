@@ -1,0 +1,10 @@
+#billsList{
+    display: flex;
+    justify-content: center;
+}
+
+#billsList .title{
+    width: 700px;
+    text-align: left;
+    color: #2a587d;
+}

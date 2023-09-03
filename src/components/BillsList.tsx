@@ -1,7 +1,9 @@
+import "./css/BillsList.css"
+
 function BillsList() {
     return (
-        <div>
-            <h1>Gastos</h1>
+        <div id="billsList">
+            <h1 className="title">Gastos</h1>
         </div>
     )
 }
