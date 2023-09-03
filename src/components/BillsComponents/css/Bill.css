@@ -1,41 +1,47 @@
-#billsContainer{
+#billContainer{
     border-radius: 10px;
     width: 700px;
-    height: 200px;
     background-color: white;
     box-shadow: 3.5px 3.5px 8px grey;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin-bottom: 25px;
 }
 
-#billsContainer .icon{
+#billContainer .billData{
+    display: flex;
+}
+
+#billContainer .icon{
     width: 100px;
     height: 100px;
     padding-left: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
-#billsContainer p{
+#billContainer p{
     color: #21435f;
 }
 
-#billsContainer .normalLabel{
+#billContainer .normalLabel{
     font-weight: normal;
     color: black;
 }
 
-#billsContainer .nameLabel{
+#billContainer .nameLabel{
     font-size: large;
 }
 
-#billsContainer .amount{
+#billContainer .amount{
     padding-right: 50px;
     text-align: right;
     flex: 1;
 }
 
 @media (max-width: 730px) {
-    #billsContainer{
+    #billContainer{
         width: 95%;
     }
 }
