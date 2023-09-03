@@ -1,0 +1,27 @@
+.labelTitle{
+    color: steelblue;
+}
+
+.labelValue{
+    color: black;
+    font-weight: normal;
+}
+
+#bills{
+    flex: 1;
+}
+
+#resetbutton{
+    color: white;
+    background-color: crimson;
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+}
+
+#resetbutton:hover{
+    background-color: #c21235;
+    cursor: pointer;
+    transition: background-color 0.3 ease;
+}

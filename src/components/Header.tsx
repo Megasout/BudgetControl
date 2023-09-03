@@ -1,4 +1,5 @@
 import AddBudget from "./AddBudget"
+import BudgetControl from "./BudgetControl"
 import "./css/Header.css"
 
 type HeaderProps = {
@@ -20,7 +21,7 @@ function Header(props: HeaderProps) {
                         budget={budget}
                         setBudget={setBudget}
                         setIsSendedBudget={setIsSendedBudget} /> :
-                    <h1>Gastos</h1>
+                    <BudgetControl budget={parseFloat(budget)}/>
                 }
             </div>
         </div>
