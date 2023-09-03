@@ -34,12 +34,14 @@ function App() {
         setIsSendedBudget={setIsSendedBudget} />
 
       {(isSendedBudget) &&
-        <img id="newBill"
-          src={NewBillIcon}
-          alt="Icono Nuevo Gasto"
-          onClick={handleOnClickNewBills} />}
-
-      <BillsList />
+        <>
+          <img id="newBill"
+            src={NewBillIcon}
+            alt="Icono Nuevo Gasto"
+            onClick={handleOnClickNewBills} />
+          <BillsList />
+        </>
+      }
 
       {(modal) &&
         <Modal addBill={handleAddBill} setModal={setModal} />

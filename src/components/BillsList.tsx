@@ -1,4 +1,4 @@
-import Bills from "./BillsList/Bills"
+import Bill from "./BillsList/Bill"
 import "./css/BillsList.css"
 
 import {
@@ -15,7 +15,7 @@ function BillsList() {
     return (
         <div id="billsList">
             <h1 className="title">Gastos</h1>
-            <Bills />
+            <Bill icon={ahorro} />
         </div>
     )
 }
