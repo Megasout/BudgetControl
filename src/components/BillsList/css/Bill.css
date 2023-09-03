@@ -6,6 +6,7 @@
     box-shadow: 3.5px 3.5px 8px grey;
     display: flex;
     align-items: center;
+    margin-bottom: 25px;
 }
 
 #billsContainer .icon{

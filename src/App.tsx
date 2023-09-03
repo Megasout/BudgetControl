@@ -39,7 +39,7 @@ function App() {
             src={NewBillIcon}
             alt="Icono Nuevo Gasto"
             onClick={handleOnClickNewBills} />
-          <BillsList />
+          <BillsList bills={bills} />
         </>
       }
 
