@@ -1,43 +1,36 @@
+import Bill from "./Bill"
 import "./css/BillsList.css"
+import { BillType } from "../../App"
+import { Helpers } from "../../helpers"
 
 type BillsListProps = {
-    budget: number
+    bills: BillType[]
 }
 
 function BillsList(props: BillsListProps) {
-    const { budget } = props
-
-    function formatToUSD(value: number): string {
-        return value.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD'
-        })
-    }
+    const { bills } = props
 
     return (
-        <div id="bills">
-            <button id="resetbutton">RESETEAR APP</button>
-            <Label title="Presupuesto:" value={formatToUSD(budget)} />
-            <Label title="Disponible:" value="$200" />
-            <Label title="Gastado:" value="$0" />
+        <div id="billsList">
+            <div className="title">
+                <h1>{bills.length ? 'Gastos' : 'No hay Gastos'}</h1>
+            </div>
+
+
+            {bills.map((bill) => {
+                return (
+                    <Bill
+                        key={bill.id}
+                        amount={Helpers.formatToUSD(Number(bill.value))}
+                        date={bill.date as string}
+                        icon={Helpers.getIcon(bill.type)}
+                        name={bill.name}
+                        type={bill.type}
+                    />
+                )
+            })}
         </div>
     )
 }
 
 export default BillsList
-
-type LabelProps = {
-    title: string
-    value: string
-}
-
-function Label(props: LabelProps) {
-    const { title, value } = props
-
-    return (
-        <div>
-            <h2 className="labelTitle">{title}
-                <span className="labelValue">{" " + value}</span></h2>
-        </div>
-    )
-}

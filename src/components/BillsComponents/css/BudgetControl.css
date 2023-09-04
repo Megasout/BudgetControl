@@ -1,0 +1,57 @@
+.billsContainer {
+    border-radius: 10px;
+    width: 700px;
+    height: 300px;
+    background-color: white;
+    box-shadow: 3.5px 3.5px 8px grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#grafic{
+    flex: 1;
+    font-size: 75px;
+    margin-left: 25px; 
+    margin-right: 25px;
+    text-align: center;
+}
+
+@media (max-width: 730px) {
+    .billsContainer {
+        width: 95%;
+    }
+}
+
+@media (max-width: 683px){
+    .billsContainer{
+        display: grid;
+        justify-content: center;
+        width: 95%;
+        height: auto;
+    }
+    #grafic{
+        margin-left: 0px; 
+        margin-right: 0px;
+        font-size: 45px;
+    }
+}
+
+/* @media (max-width: 730px) {
+    .billsContainer {
+        width: 95vw;
+    }
+}
+
+@media (max-width: 487px) {
+    .billsContainer {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 335px) {
+    .billsContainer {
+        width: 85vw;
+    }
+} */

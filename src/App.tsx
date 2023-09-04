@@ -6,6 +6,7 @@ import Modal from "./components/Modal"
 import { Helpers } from "./helpers"
 
 import NewBillIcon from "./assets/nuevo.svg"
+import BillsList from "./components/BillsComponents/BillsList"
 
 
 function App() {
@@ -20,12 +21,13 @@ function App() {
 
   function handleAddBill(bill: BillType) {
     let billsT = [...bills]
-    billsT.push({...bill, id: Helpers.generateId()})
+    const date = Helpers.getDate()
+    billsT.push({ ...bill, id: Helpers.generateId(), date: date})
     setBills(billsT)
   }
 
   return (
-    <div>
+    <div style={modal ? {height: '100vh', overflow: 'hidden'}: {}}>
       <Header
         budget={budget}
         setBudget={setBudget}
@@ -33,10 +35,16 @@ function App() {
         setIsSendedBudget={setIsSendedBudget} />
 
       {(isSendedBudget) &&
-        <img id="newBill"
-          src={NewBillIcon}
-          alt="Icono Nuevo Gasto"
-          onClick={handleOnClickNewBills} />}
+        <>
+          <main>
+            <BillsList bills={bills} />
+          </main>
+          <img id="newBill"
+            src={NewBillIcon}
+            alt="Icono Nuevo Gasto"
+            onClick={handleOnClickNewBills} />
+        </>
+      }
 
       {(modal) &&
         <Modal addBill={handleAddBill} setModal={setModal} />
@@ -49,6 +57,7 @@ export default App
 
 export type BillType = {
   id?: string
+  date?: string
   name: string
   value: string
   type: string

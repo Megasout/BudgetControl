@@ -1,27 +1,21 @@
-.labelTitle{
-    color: steelblue;
+#billsList {
+    display: grid;
+    justify-content: center;
 }
 
-.labelValue{
-    color: black;
-    font-weight: normal;
+#billsList .title {
+    width: 700px;
+    text-align: left;
+    color: #21435f;
 }
 
-#bills{
-    flex: 1;
-}
+@media (max-width: 730px) {
+    #billsList{
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-#resetbutton{
-    color: white;
-    background-color: crimson;
-    width: 300px;
-    height: 35px;
-    border: none;
-    border-radius: 5px;
-}
-
-#resetbutton:hover{
-    background-color: #c21235;
-    cursor: pointer;
-    transition: background-color 0.3 ease;
+    #billsList .title{
+        width: 95%;
+    }
 }
