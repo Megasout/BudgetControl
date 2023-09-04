@@ -1,6 +1,9 @@
 import ViewBills from "./ViewBills"
 import "./css/BudgetControl.css"
 
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
 type BudgetControlProps = {
     total: number
     remaining: number
@@ -10,9 +13,11 @@ type BudgetControlProps = {
 function BudgetControl(props: BudgetControlProps) {
     const { total, remaining, spent } = props
 
+    const percentage = ((spent * 100) / total)
+
     return (
         <div className="billsContainer">
-            <p id="grafic">Grafica</p>
+            <CircularProgressbar value={percentage} text={'Gastado: ' + percentage.toFixed(1) + '%'}/>
             <ViewBills total={Number(total)}
                 remaining={remaining}
                 spent={spent} />

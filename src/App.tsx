@@ -36,11 +36,13 @@ function App() {
       billsT[index] = bill
     }
 
-    setBills(billsT)
-    setBillToEddit(null)
+    setTimeout(() => {
+      setBills(billsT)
+      setBillToEddit(null)
+    }, 500);
   }
 
-  function handleDeleteBill(id: string){
+  function handleDeleteBill(id: string) {
     let billsT = [...bills]
     const index = billsT.findIndex(b => b.id == id)
     billsT.splice(index, 1)
@@ -59,10 +61,10 @@ function App() {
       {(isSendedBudget) &&
         <>
           <main>
-            <BillsList 
-            bills={bills} 
-            setBillToEddit={setBillToEddit}
-            deleteBill={handleDeleteBill} />
+            <BillsList
+              bills={bills}
+              setBillToEddit={setBillToEddit}
+              deleteBill={handleDeleteBill} />
           </main>
           <img id="newBill"
             src={NewBillIcon}
