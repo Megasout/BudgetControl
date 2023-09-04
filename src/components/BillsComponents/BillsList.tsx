@@ -5,10 +5,11 @@ import { BillType } from "../../App"
 type BillsListProps = {
     bills: BillType[]
     setBillToEddit: (bill: BillType) => void
+    deleteBill: (id: string) => void
 }
 
 function BillsList(props: BillsListProps) {
-    const { bills, setBillToEddit } = props
+    const { bills, setBillToEddit, deleteBill } = props
 
     return (
         <div id="billsList">
@@ -23,6 +24,7 @@ function BillsList(props: BillsListProps) {
                         key={bill.id}
                         bill={bill}
                         setBillToEddit={setBillToEddit}
+                        deleteBill={deleteBill}
                     />
                 )
             })}

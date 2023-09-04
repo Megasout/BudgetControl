@@ -13,6 +13,7 @@ import { Helpers } from "../../helpers";
 type BillProps = {
     bill: BillType
     setBillToEddit: (bill: BillType) => void
+    deleteBill: (id: string) => void
 }
 
 function Bill(props: BillProps) {
@@ -32,7 +33,13 @@ function Bill(props: BillProps) {
 
     const trailingActions = () => (
         <TrailingActions>
-            <SwipeAction destructive={false} onClick={() => console.log('eliminar')}>
+            <SwipeAction
+                destructive={false}
+                onClick={() => {
+                    const result = confirm('Desea el eliminar el gasto ${name}?')
+                    if (result == true)
+                        props.deleteBill(props.bill.id as string)
+                }}>
                 <div>
                     <h3>Eliminar</h3>
                 </div>

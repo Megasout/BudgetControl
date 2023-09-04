@@ -40,6 +40,13 @@ function App() {
     setBillToEddit(null)
   }
 
+  function handleDeleteBill(id: string){
+    let billsT = [...bills]
+    const index = billsT.findIndex(b => b.id == id)
+    billsT.splice(index, 1)
+    setBills(billsT)
+  }
+
   return (
     <div style={modal ? { height: '100vh', overflow: 'hidden' } : {}}>
       <Header
@@ -52,7 +59,10 @@ function App() {
       {(isSendedBudget) &&
         <>
           <main>
-            <BillsList bills={bills} setBillToEddit={setBillToEddit} />
+            <BillsList 
+            bills={bills} 
+            setBillToEddit={setBillToEddit}
+            deleteBill={handleDeleteBill} />
           </main>
           <img id="newBill"
             src={NewBillIcon}
