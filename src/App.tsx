@@ -9,17 +9,28 @@ import NewBillIcon from "./assets/nuevo.svg"
 import BillsList from "./components/BillsComponents/BillsList"
 
 function App() {
-  const [isSendedBudget, setIsSendedBudget] = useState<boolean>(false)
+  const loadBudget: string = JSON.parse(localStorage.getItem('budget') as string ?? '0')
+  const loadBills: BillType[] = JSON.parse(localStorage.getItem('bills') as string ?? '[]')
+
+  const [isSendedBudget, setIsSendedBudget] = useState<boolean>(loadBudget != '0')
   const [modal, setModal] = useState<boolean>(false)
 
-  const [bills, setBills] = useState<Array<BillType>>([])
+  const [bills, setBills] = useState<Array<BillType>>(loadBills)
   const [billToEddit, setBillToEddit] = useState<BillType | null>(null)
-  const [budget, setBudget] = useState<string>('0')
+  const [budget, setBudget] = useState<string>(loadBudget)
 
   useEffect(() => {
     if (billToEddit != null)
       setModal(true)
   }, [billToEddit])
+
+  useEffect(() => {
+    localStorage.setItem('budget', JSON.stringify(budget))
+  }, [budget])
+
+  useEffect(() => {
+    localStorage.setItem('bills', JSON.stringify(bills))
+  }, [bills])
 
   const handleOnClickNewBills = () => {
     setModal(true)

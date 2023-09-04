@@ -17,7 +17,9 @@ function BudgetControl(props: BudgetControlProps) {
 
     return (
         <div className="billsContainer">
-            <CircularProgressbar value={percentage} text={'Gastado: ' + percentage.toFixed(1) + '%'}/>
+            <CircularProgressbar
+                value={percentage}
+                text={'Gastado: ' + percentage.toFixed(1) + '%'} />
             <ViewBills total={Number(total)}
                 remaining={remaining}
                 spent={spent} />
