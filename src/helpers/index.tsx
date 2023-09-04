@@ -36,4 +36,19 @@ export class Helpers {
             currency: 'USD'
         })
     }
+
+    static getDate(): string{
+        const meses = [
+            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+            "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"
+        ];
+
+        const fechaActual = new Date();
+        const dia = String(fechaActual.getDate()).padStart(2, '0'); // Obtener día con formato 'dd'
+        const mes = meses[fechaActual.getMonth()]; // Obtener el nombre del mes
+        const año = fechaActual.getFullYear(); // Obtener el año
+
+        const fechaFormateada = `${dia} de ${mes} de ${año}`;
+        return fechaFormateada;
+    }
 } 

@@ -21,7 +21,8 @@ function App() {
 
   function handleAddBill(bill: BillType) {
     let billsT = [...bills]
-    billsT.push({ ...bill, id: Helpers.generateId() })
+    const date = Helpers.getDate()
+    billsT.push({ ...bill, id: Helpers.generateId(), date: date})
     setBills(billsT)
   }
 
@@ -35,11 +36,13 @@ function App() {
 
       {(isSendedBudget) &&
         <>
+          <main>
+            <BillsList bills={bills} />
+          </main>
           <img id="newBill"
             src={NewBillIcon}
             alt="Icono Nuevo Gasto"
             onClick={handleOnClickNewBills} />
-          <BillsList bills={bills} />
         </>
       }
 
@@ -54,6 +57,7 @@ export default App
 
 export type BillType = {
   id?: string
+  date?: string
   name: string
   value: string
   type: string

@@ -13,7 +13,7 @@ function BillsList(props: BillsListProps) {
     return (
         <div id="billsList">
             <div className="title">
-                <h1>Gastos</h1>
+                <h1>{bills.length ? 'Gastos' : 'No hay Gastos'}</h1>
             </div>
 
 
@@ -22,7 +22,7 @@ function BillsList(props: BillsListProps) {
                     <Bill
                         key={bill.id}
                         amount={Helpers.formatToUSD(Number(bill.value))}
-                        date="03 de setiembre del 2023"
+                        date={bill.date as string}
                         icon={Helpers.getIcon(bill.type)}
                         name={bill.name}
                         type={bill.type}

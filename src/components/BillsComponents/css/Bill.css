@@ -12,7 +12,7 @@
 #billContainer .billData{
     display: flex;
     /* overflow: hidden; */
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 #billContainer .icon{
@@ -39,7 +39,7 @@
 #billContainer .amount{
     padding-right: 50px;
     text-align: right;
-    overflow-x: scroll;
+    overflow-x: auto;
     flex: 1;
 }
 
