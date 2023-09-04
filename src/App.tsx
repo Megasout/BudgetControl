@@ -27,7 +27,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div style={modal ? {height: '100vh', overflow: 'hidden'}: {}}>
       <Header
         budget={budget}
         setBudget={setBudget}
