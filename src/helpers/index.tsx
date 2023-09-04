@@ -29,4 +29,11 @@ export class Helpers {
             default: return ahorro
         }
     }
+
+    static formatToUSD(value: number): string {
+        return value.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        })
+    }
 } 

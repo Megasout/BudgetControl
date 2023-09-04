@@ -15,7 +15,7 @@ function Bill(props: BillProps) {
         <div id="billContainer">
             <div className="billData">
                 <img className="icon" src={icon} />
-                <div style={{ marginLeft: '20px' }}>
+                <div style={{ marginLeft: '20px', paddingTop:'10px' }}>
                     <p className="normalLabel">{type}</p>
                     <p className="nameLabel">{name}</p>
                     <p>Agregado el:

@@ -21,7 +21,7 @@ function BillsList(props: BillsListProps) {
                 return (
                     <Bill
                         key={bill.id}
-                        amount={bill.value}
+                        amount={Helpers.formatToUSD(Number(bill.value))}
                         date="03 de setiembre del 2023"
                         icon={Helpers.getIcon(bill.type)}
                         name={bill.name}

@@ -3,14 +3,16 @@
     width: 700px;
     background-color: white;
     box-shadow: 3.5px 3.5px 8px grey;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     align-items: center;
     margin-bottom: 25px;
+    overflow-wrap: break-word;
 }
 
 #billContainer .billData{
     display: flex;
+    /* overflow: hidden; */
+    overflow-x: scroll;
 }
 
 #billContainer .icon{
@@ -37,6 +39,7 @@
 #billContainer .amount{
     padding-right: 50px;
     text-align: right;
+    overflow-x: scroll;
     flex: 1;
 }
 
