@@ -2,18 +2,21 @@ import { Helpers } from "../../helpers"
 import "./css/ViewBills.css"
 
 type ViewBillsProps = {
-    budget: number
+    total: number
+    remaining: number
+    spent: number
 }
 
 function ViewBills(props: ViewBillsProps) {
-    const { budget } = props
+
+    const {total, remaining, spent} = props
 
     return (
         <div id="bills">
             <button id="resetbutton">RESETEAR APP</button>
-            <Label title="Presupuesto:" value={Helpers.formatToUSD(budget)} />
-            <Label title="Disponible:" value="$200" />
-            <Label title="Gastado:" value="$0" />
+            <Label title="Presupuesto:" value={Helpers.formatToUSD(total)} />
+            <Label title="Disponible:" value={Helpers.formatToUSD(remaining)} />
+            <Label title="Gastado:" value={Helpers.formatToUSD(spent)} />
         </div>
     )
 }

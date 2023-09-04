@@ -1,9 +1,10 @@
+import { Budget } from "../App"
 import AddBudget from "./AddBudget"
 import BudgetControl from "./BillsComponents/BudgetControl"
 import "./css/Header.css"
 
 type HeaderProps = {
-    budget: string
+    budget: Budget
     setBudget: (value: string) => void
     isSendedBudget: boolean
     setIsSendedBudget: (value: boolean) => void
@@ -20,10 +21,10 @@ function Header(props: HeaderProps) {
                 <h1 className="title">Planificador de Gastos</h1>
                 {(!isSendedBudget) ?
                     <AddBudget
-                        budget={budget}
+                        budget={budget.total}
                         setBudget={setBudget}
                         setIsSendedBudget={setIsSendedBudget} /> :
-                    <BudgetControl budget={parseFloat(budget)} />
+                    <BudgetControl budget={budget} />
                 }
             </div>
         </div>
