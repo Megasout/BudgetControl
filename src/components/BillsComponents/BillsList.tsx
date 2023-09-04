@@ -1,14 +1,15 @@
 import Bill from "./Bill"
 import "./css/BillsList.css"
 import { BillType } from "../../App"
-import { Helpers } from "../../helpers"
 
 type BillsListProps = {
     bills: BillType[]
+    setBillToEddit: (bill: BillType) => void
+    deleteBill: (id: string) => void
 }
 
 function BillsList(props: BillsListProps) {
-    const { bills } = props
+    const { bills, setBillToEddit, deleteBill } = props
 
     return (
         <div id="billsList">
@@ -21,11 +22,9 @@ function BillsList(props: BillsListProps) {
                 return (
                     <Bill
                         key={bill.id}
-                        amount={Helpers.formatToUSD(Number(bill.value))}
-                        date={bill.date as string}
-                        icon={Helpers.getIcon(bill.type)}
-                        name={bill.name}
-                        type={bill.type}
+                        bill={bill}
+                        setBillToEddit={setBillToEddit}
+                        deleteBill={deleteBill}
                     />
                 )
             })}

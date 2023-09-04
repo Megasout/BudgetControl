@@ -1,17 +1,22 @@
-import { Budget } from "../App"
 import AddBudget from "./AddBudget"
 import BudgetControl from "./BillsComponents/BudgetControl"
 import "./css/Header.css"
 
 type HeaderProps = {
-    budget: Budget
+    totalBudget: string
+    spentBudget: number
     setBudget: (value: string) => void
     isSendedBudget: boolean
     setIsSendedBudget: (value: boolean) => void
 }
 
 function Header(props: HeaderProps) {
-    const { budget, setBudget, isSendedBudget, setIsSendedBudget } = props
+    const {
+        totalBudget,
+        spentBudget,
+        setBudget,
+        isSendedBudget,
+        setIsSendedBudget } = props
 
     return (
         <div>
@@ -21,10 +26,13 @@ function Header(props: HeaderProps) {
                 <h1 className="title">Planificador de Gastos</h1>
                 {(!isSendedBudget) ?
                     <AddBudget
-                        budget={budget.total}
+                        budget={totalBudget}
                         setBudget={setBudget}
                         setIsSendedBudget={setIsSendedBudget} /> :
-                    <BudgetControl budget={budget} />
+                    <BudgetControl
+                        total={Number(totalBudget)}
+                        spent={spentBudget}
+                        remaining={Number(totalBudget) - spentBudget} />
                 }
             </div>
         </div>

@@ -1,3 +1,4 @@
+import { BillType } from "../App"
 import {
     ahorro,
     casa,
@@ -50,5 +51,14 @@ export class Helpers {
 
         const fechaFormateada = `${dia} de ${mes} de ${año}`;
         return fechaFormateada;
+    }
+
+    static getSpentBudget(bills: Array<BillType>): number{
+        let spent = 0
+        bills.forEach(bill => {
+            spent += Number(bill.value) 
+        });
+
+        return spent
     }
 } 
