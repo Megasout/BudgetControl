@@ -73,7 +73,7 @@ function Modal(props: ModalProps) {
             <form
                 onSubmit={handleValidateForm}
                 className={"modal-form" + ' ' + formClass}>
-                <legend id="modal-title">Nuevo Gasto</legend>
+                <legend id="modal-title">{billToEddit  ? 'Editar Gasto' : 'Nuevo Gasto'}</legend>
                 {(error != '') && <Message>{error}</Message>}
 
                 <label
