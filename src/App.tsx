@@ -11,6 +11,7 @@ import BillsList from "./components/BillsComponents/BillsList"
 function App() {
   const [isSendedBudget, setIsSendedBudget] = useState<boolean>(false)
   const [modal, setModal] = useState<boolean>(false)
+  
   const [bills, setBills] = useState<Array<BillType>>([])
   const [budget, setBudget] = useState<Budget>({
     total: '0',
