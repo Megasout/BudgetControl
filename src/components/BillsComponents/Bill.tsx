@@ -36,7 +36,7 @@ function Bill(props: BillProps) {
             <SwipeAction
                 destructive={false}
                 onClick={() => {
-                    const result = confirm('Desea el eliminar el gasto ${name}?')
+                    const result = confirm('Desea el eliminar el gasto \'' + name + '\'?')
                     if (result == true)
                         props.deleteBill(props.bill.id as string)
                 }}>

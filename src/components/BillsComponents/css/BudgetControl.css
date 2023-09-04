@@ -10,6 +10,17 @@
     flex-wrap: wrap;
 }
 
+.billsContainer .CircularProgressbar{
+    flex: 1;
+    width: 80%;
+    height: 80%;
+}
+
+.billsContainer .CircularProgressbar .CircularProgressbar-text{
+    font-size: medium;
+    fill: steelblue;
+}
+
 #grafic{
     flex: 1;
     font-size: 75px;
