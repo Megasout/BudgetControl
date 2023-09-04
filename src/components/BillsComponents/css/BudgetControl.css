@@ -17,8 +17,12 @@
 }
 
 .billsContainer .CircularProgressbar .CircularProgressbar-text{
-    font-size: medium;
+    font-size: x-small;
     fill: steelblue;
+}
+
+.billsContainer .CircularProgressbar .CircularProgressbar-path{
+    stroke: steelblue;
 }
 
 #grafic{
