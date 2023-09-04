@@ -7,18 +7,22 @@ import Message from "./Message"
 type ModalProps = {
     setModal(value: boolean): void
     addBill(value: BillType): void
+    billToEddit: BillType | null
+    setBillToEddit: (value: null) => void
 }
 
 function Modal(props: ModalProps) {
-    const { setModal, addBill } = props
+    const { setModal, addBill, billToEddit, setBillToEddit } = props
 
     const [animation, setAnimation] = useState<boolean>(false)
 
-    const [bill, setBill] = useState<BillType>({
-        name: '',
-        type: '',
-        value: ''
-    })
+    const [bill, setBill] = useState<BillType>(billToEddit ?
+        billToEddit
+        : {
+            name: '',
+            type: '',
+            value: ''
+        })
 
     const [error, setError] = useState<string>('')
 
@@ -33,6 +37,7 @@ function Modal(props: ModalProps) {
 
     const handleCloseButton = () => {
         setAnimation(false)
+        setBillToEddit(null)
 
         setTimeout(() => {
             setModal(false)

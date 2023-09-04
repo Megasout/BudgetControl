@@ -7,21 +7,22 @@ import {
     TrailingActions
 } from 'react-swipeable-list'
 import 'react-swipeable-list/dist/styles.css';
+import { BillType } from "../../App";
+import { Helpers } from "../../helpers";
 
 type BillProps = {
-    icon: string
-    name: string
-    type: string
-    date: string
-    amount: string
+    bill: BillType
+    setBillToEddit: (bill: BillType) => void
 }
 
 function Bill(props: BillProps) {
-    const { icon, amount, date, name, type } = props
+    const { value, date, name, type } = props.bill
+
+    const icon = Helpers.getIcon(type)
 
     const leadingActions = () => (
         <LeadingActions>
-            <SwipeAction onClick={() => console.log('editar')}>
+            <SwipeAction onClick={() => props.setBillToEddit(props.bill)}>
                 <div>
                     <h3>Editar</h3>
                 </div>
@@ -58,7 +59,7 @@ function Bill(props: BillProps) {
                                 </p>
                             </div>
                         </div>
-                        <h2 className="amount">{amount}</h2>
+                        <h2 className="amount">{Helpers.formatToUSD(Number(value))}</h2>
                     </div>
                 </SwipeableListItem>
             </SwipeableList>

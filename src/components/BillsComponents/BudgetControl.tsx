@@ -1,13 +1,14 @@
-import { Budget } from "../../App"
 import ViewBills from "./ViewBills"
 import "./css/BudgetControl.css"
 
 type BudgetControlProps = {
-    budget: Budget
+    total: number
+    remaining: number
+    spent: number
 }
 
 function BudgetControl(props: BudgetControlProps) {
-    const { total, remaining, spent } = props.budget
+    const { total, remaining, spent } = props
 
     return (
         <div className="billsContainer">

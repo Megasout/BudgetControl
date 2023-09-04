@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import Header from "./components/Header"
 import Modal from "./components/Modal"
@@ -11,13 +11,15 @@ import BillsList from "./components/BillsComponents/BillsList"
 function App() {
   const [isSendedBudget, setIsSendedBudget] = useState<boolean>(false)
   const [modal, setModal] = useState<boolean>(false)
-  
+
   const [bills, setBills] = useState<Array<BillType>>([])
-  const [budget, setBudget] = useState<Budget>({
-    total: '0',
-    remaining: 0,
-    spent: 0
-  })
+  const [billToEddit, setBillToEddit] = useState<BillType | null>(null)
+  const [budget, setBudget] = useState<string>('0')
+
+  useEffect(() => {
+    if (billToEddit != null)
+      setModal(true)
+  }, [billToEddit])
 
   const handleOnClickNewBills = () => {
     setModal(true)
@@ -25,32 +27,32 @@ function App() {
 
   function handleAddBill(bill: BillType) {
     let billsT = [...bills]
-    const date = Helpers.getDate()
-    billsT.push({ ...bill, id: Helpers.generateId(), date: date })
+
+    if (billToEddit == null) {
+      const date = Helpers.getDate()
+      billsT.push({ ...bill, id: Helpers.generateId(), date: date })
+    } else {
+      const index = billsT.findIndex(b => b.id == bill.id)
+      billsT[index] = bill
+    }
+
     setBills(billsT)
-    setBudget({
-      ...budget,
-      remaining: budget.remaining - Number(bill.value),
-      spent: budget.spent + Number(bill.value)
-    })
+    setBillToEddit(null)
   }
 
   return (
     <div style={modal ? { height: '100vh', overflow: 'hidden' } : {}}>
       <Header
-        budget={budget}
-        setBudget={(value) => setBudget({
-          ...budget,
-          total: value,
-          remaining: Number(value)
-        })}
+        totalBudget={budget}
+        spentBudget={Helpers.getSpentBudget(bills)}
+        setBudget={(value) => setBudget(value)}
         isSendedBudget={isSendedBudget}
         setIsSendedBudget={setIsSendedBudget} />
 
       {(isSendedBudget) &&
         <>
           <main>
-            <BillsList bills={bills} />
+            <BillsList bills={bills} setBillToEddit={setBillToEddit} />
           </main>
           <img id="newBill"
             src={NewBillIcon}
@@ -60,7 +62,11 @@ function App() {
       }
 
       {(modal) &&
-        <Modal addBill={handleAddBill} setModal={setModal} />
+        <Modal
+          addBill={handleAddBill}
+          setModal={setModal}
+          billToEddit={billToEddit}
+          setBillToEddit={setBillToEddit} />
       }
     </div>
   )
@@ -74,10 +80,4 @@ export type BillType = {
   name: string
   value: string
   type: string
-}
-
-export type Budget = {
-  total: string
-  remaining: number
-  spent: number
 }
