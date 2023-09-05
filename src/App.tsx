@@ -63,7 +63,7 @@ function App() {
   }
 
   const handleResetApp = () => {
-    localStorage.clear()
+    // localStorage.clear()
     setBills([])
     setBudget('0')
     setIsSendedBudget(false)
