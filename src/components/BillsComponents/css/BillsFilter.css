@@ -1,0 +1,8 @@
+#filtro{
+    width: 700px;
+    height: 200px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 3.5px 3.5px 5px gray;
+}

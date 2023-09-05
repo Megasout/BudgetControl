@@ -7,6 +7,7 @@ import { Helpers } from "./helpers"
 
 import NewBillIcon from "./assets/nuevo.svg"
 import BillsList from "./components/BillsComponents/BillsList"
+import BillsFilter from "./components/BillsComponents/BillsFilter"
 
 function App() {
   const loadBudget: string = JSON.parse(localStorage.getItem('budget') as string ?? '0')
@@ -80,6 +81,7 @@ function App() {
       {(isSendedBudget) &&
         <>
           <main>
+            <BillsFilter />
             <BillsList
               bills={bills}
               setBillToEddit={setBillToEddit}

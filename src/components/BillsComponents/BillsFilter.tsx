@@ -2,7 +2,7 @@ import "./css/BillsFilter.css"
 
 function BillsFilter() {
     return (
-        <div>
+        <div id="filtro">
         </div>
     )
 }
