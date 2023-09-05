@@ -35,5 +35,7 @@ body {
 
 main{
   display: grid;
+  grid-template-columns: 1fr;
   justify-content: center;
+  /* width: 100%; */
 }

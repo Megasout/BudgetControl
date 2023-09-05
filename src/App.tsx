@@ -69,7 +69,8 @@ function App() {
   }
 
   return (
-    <div style={modal ? { height: '100vh', overflow: 'hidden' } : {}}>
+  
+    <div className="index" style={modal ? { height: '100vh', overflow: 'hidden' } : {}}>
       <Header
         totalBudget={budget}
         spentBudget={Helpers.getSpentBudget(bills)}
@@ -87,6 +88,7 @@ function App() {
               setBillToEddit={setBillToEddit}
               deleteBill={handleDeleteBill} />
           </main>
+
           <img id="newBill"
             src={NewBillIcon}
             alt="Icono Nuevo Gasto"
