@@ -16,6 +16,14 @@ function BudgetControl(props: BudgetControlProps) {
 
     const percentage = ((spent * 100) / total)
 
+    if (percentage > 100){
+        document.documentElement.style.setProperty("--circularProgressBar_Color", "Crimson")
+        document.documentElement.style.setProperty("--remainingText_Color", "Crimson")
+    }else{
+        document.documentElement.style.setProperty("--circularProgressBar_Color", "steelblue")
+        document.documentElement.style.setProperty("--remainingText_Color", "Black")
+    }
+
     return (
         <div className="billsContainer">
             <div className="circularBarContainer">

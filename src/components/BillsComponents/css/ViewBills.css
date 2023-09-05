@@ -7,6 +7,10 @@
     font-weight: normal;
 }
 
+#remainingText{
+    color: var(--remainingText_Color);
+}
+
 #bills{
     flex: 1;
     margin-right: 25px;

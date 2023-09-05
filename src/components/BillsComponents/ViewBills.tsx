@@ -23,7 +23,7 @@ function ViewBills(props: ViewBillsProps) {
                 id="resetbutton"
                 onClick={handleResetApp}>RESETEAR APP</button>
             <Label title="Presupuesto:" value={Helpers.formatToUSD(total)} />
-            <Label title="Disponible:" value={Helpers.formatToUSD(remaining)} />
+            <Label id="remainingText" title="Disponible:" value={Helpers.formatToUSD(remaining)} />
             <Label title="Gastado:" value={Helpers.formatToUSD(spent)} />
         </div>
     )
@@ -34,15 +34,16 @@ export default ViewBills
 type LabelProps = {
     title: string
     value: string
+    id?: string 
 }
 
 function Label(props: LabelProps) {
-    const { title, value } = props
+    const { title, value, id } = props
 
     return (
         <div>
             <h2 className="labelTitle">{title}
-                <span className="labelValue">{" " + value}</span></h2>
+                <span id={id} className="labelValue">{" " + value}</span></h2>
         </div>
     )
 }
