@@ -8,19 +8,24 @@ type BudgetControlProps = {
     total: number
     remaining: number
     spent: number
+    resetApp: () => void
 }
 
 function BudgetControl(props: BudgetControlProps) {
-    const { total, remaining, spent } = props
+    const { total, remaining, spent, resetApp } = props
 
     const percentage = ((spent * 100) / total)
 
     return (
         <div className="billsContainer">
-            <CircularProgressbar value={percentage} text={'Gastado: ' + percentage.toFixed(1) + '%'}/>
-            <ViewBills total={Number(total)}
+            <CircularProgressbar
+                value={percentage}
+                text={'Gastado: ' + percentage.toFixed(1) + '%'} />
+            <ViewBills
+                total={Number(total)}
                 remaining={remaining}
-                spent={spent} />
+                spent={spent}
+                resetApp={resetApp} />
         </div>
     )
 }
