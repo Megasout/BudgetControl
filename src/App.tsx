@@ -60,6 +60,13 @@ function App() {
     setBills(billsT)
   }
 
+  const handleResetApp = () => {
+    localStorage.clear()
+    setBills([])
+    setBudget('0')
+    setIsSendedBudget(false)
+  }
+
   return (
     <div style={modal ? { height: '100vh', overflow: 'hidden' } : {}}>
       <Header
@@ -67,7 +74,8 @@ function App() {
         spentBudget={Helpers.getSpentBudget(bills)}
         setBudget={(value) => setBudget(value)}
         isSendedBudget={isSendedBudget}
-        setIsSendedBudget={setIsSendedBudget} />
+        setIsSendedBudget={setIsSendedBudget} 
+        resetApp={handleResetApp}/>
 
       {(isSendedBudget) &&
         <>

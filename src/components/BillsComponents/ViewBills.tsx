@@ -5,15 +5,23 @@ type ViewBillsProps = {
     total: number
     remaining: number
     spent: number
+    resetApp: () => void
 }
 
 function ViewBills(props: ViewBillsProps) {
 
-    const {total, remaining, spent} = props
+    const { total, remaining, spent, resetApp } = props
+    const handleResetApp = () => {
+        const result = confirm('Desea resetear la Aplicacion')
+        if (result)
+            resetApp()
+    }
 
     return (
         <div id="bills">
-            <button id="resetbutton">RESETEAR APP</button>
+            <button
+                id="resetbutton"
+                onClick={handleResetApp}>RESETEAR APP</button>
             <Label title="Presupuesto:" value={Helpers.formatToUSD(total)} />
             <Label title="Disponible:" value={Helpers.formatToUSD(remaining)} />
             <Label title="Gastado:" value={Helpers.formatToUSD(spent)} />

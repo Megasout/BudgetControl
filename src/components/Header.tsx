@@ -8,6 +8,7 @@ type HeaderProps = {
     setBudget: (value: string) => void
     isSendedBudget: boolean
     setIsSendedBudget: (value: boolean) => void
+    resetApp: () => void
 }
 
 function Header(props: HeaderProps) {
@@ -16,7 +17,8 @@ function Header(props: HeaderProps) {
         spentBudget,
         setBudget,
         isSendedBudget,
-        setIsSendedBudget } = props
+        setIsSendedBudget,
+        resetApp } = props
 
     return (
         <div>
@@ -32,7 +34,8 @@ function Header(props: HeaderProps) {
                     <BudgetControl
                         total={Number(totalBudget)}
                         spent={spentBudget}
-                        remaining={Number(totalBudget) - spentBudget} />
+                        remaining={Number(totalBudget) - spentBudget}
+                        resetApp={resetApp} />
                 }
             </div>
         </div>
