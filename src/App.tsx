@@ -19,6 +19,7 @@ function App() {
   const [bills, setBills] = useState<Array<BillType>>(loadBills)
   const [billToEddit, setBillToEddit] = useState<BillType | null>(null)
   const [budget, setBudget] = useState<string>(loadBudget)
+  const [filter, setFilter] = useState<string>('All')
 
   useEffect(() => {
     if (billToEddit != null)
@@ -69,22 +70,25 @@ function App() {
   }
 
   return (
-  
+
     <div className="index" style={modal ? { height: '100vh', overflow: 'hidden' } : {}}>
       <Header
         totalBudget={budget}
         spentBudget={Helpers.getSpentBudget(bills)}
         setBudget={(value) => setBudget(value)}
         isSendedBudget={isSendedBudget}
-        setIsSendedBudget={setIsSendedBudget} 
-        resetApp={handleResetApp}/>
+        setIsSendedBudget={setIsSendedBudget}
+        resetApp={handleResetApp} />
 
       {(isSendedBudget) &&
         <>
           <main>
-            <BillsFilter />
+            <BillsFilter
+              filter={filter}
+              setFilter={setFilter} />
             <BillsList
               bills={bills}
+              filter={filter}
               setBillToEddit={setBillToEddit}
               deleteBill={handleDeleteBill} />
           </main>
