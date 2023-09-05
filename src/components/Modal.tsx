@@ -37,10 +37,10 @@ function Modal(props: ModalProps) {
 
     const handleCloseButton = () => {
         setAnimation(false)
-        setBillToEddit(null)
 
         setTimeout(() => {
             setModal(false)
+            setBillToEddit(null)
         }
             , 500)
     }
