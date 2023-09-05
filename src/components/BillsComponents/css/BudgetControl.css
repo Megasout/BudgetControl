@@ -10,25 +10,34 @@
     flex-wrap: wrap;
 }
 
-.billsContainer .CircularProgressbar{
+.circularBarContainer {
     flex: 1;
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
 
-.billsContainer .CircularProgressbar .CircularProgressbar-text{
+.billsContainer .CircularProgressbar {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+.billsContainer .CircularProgressbar .CircularProgressbar-text {
     font-size: x-small;
     fill: steelblue;
 }
 
-.billsContainer .CircularProgressbar .CircularProgressbar-path{
+.billsContainer .CircularProgressbar .CircularProgressbar-path {
     stroke: steelblue;
 }
 
-#grafic{
+#grafic {
     flex: 1;
     font-size: 75px;
-    margin-left: 25px; 
+    margin-left: 25px;
     margin-right: 25px;
     text-align: center;
 }
@@ -39,34 +48,17 @@
     }
 }
 
-@media (max-width: 683px){
-    .billsContainer{
+@media (max-width: 683px) {
+    .billsContainer {
         display: grid;
         justify-content: center;
         width: 95%;
         height: auto;
     }
-    #grafic{
-        margin-left: 0px; 
+
+    #grafic {
+        margin-left: 0px;
         margin-right: 0px;
         font-size: 45px;
     }
 }
-
-/* @media (max-width: 730px) {
-    .billsContainer {
-        width: 95vw;
-    }
-}
-
-@media (max-width: 487px) {
-    .billsContainer {
-        width: 90vw;
-    }
-}
-
-@media (max-width: 335px) {
-    .billsContainer {
-        width: 85vw;
-    }
-} */

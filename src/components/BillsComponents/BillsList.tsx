@@ -6,10 +6,11 @@ type BillsListProps = {
     bills: BillType[]
     setBillToEddit: (bill: BillType) => void
     deleteBill: (id: string) => void
+    filter: string
 }
 
 function BillsList(props: BillsListProps) {
-    const { bills, setBillToEddit, deleteBill } = props
+    const { bills, setBillToEddit, deleteBill, filter } = props
 
     return (
         <div id="billsList">
@@ -19,14 +20,27 @@ function BillsList(props: BillsListProps) {
 
 
             {bills.map((bill) => {
-                return (
-                    <Bill
-                        key={bill.id}
-                        bill={bill}
-                        setBillToEddit={setBillToEddit}
-                        deleteBill={deleteBill}
-                    />
-                )
+                console.log(filter)
+                console.log(bill.type)
+                if (filter == 'All')
+                    return (
+                        <Bill
+                            key={bill.id}
+                            bill={bill}
+                            setBillToEddit={setBillToEddit}
+                            deleteBill={deleteBill}
+                        />
+                    )
+                if (filter == bill.type)
+                    return (
+                        <Bill
+                            key={bill.id}
+                            bill={bill}
+                            setBillToEddit={setBillToEddit}
+                            deleteBill={deleteBill}
+                        />
+                    )
+                else return
             })}
         </div>
     )

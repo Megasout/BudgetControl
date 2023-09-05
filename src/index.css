@@ -1,5 +1,5 @@
 :root {
-  --gris-smoke: #f6f8fa;
+  --gris-smoke: #f7f7f8;
 }
 
 body {
@@ -31,4 +31,11 @@ body {
     right 0.3s ease,
     bottom 0.3s ease,
     box-shadow 0.15s ease;
+}
+
+main{
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  /* width: 100%; */
 }

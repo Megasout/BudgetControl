@@ -1,20 +1,17 @@
 #billsList {
     display: grid;
     justify-content: center;
+    grid-template-columns: 1fr;
 }
 
 #billsList .title {
     width: 700px;
+    margin: 0 auto;
     text-align: left;
     color: #21435f;
 }
 
 @media (max-width: 730px) {
-    #billsList{
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     #billsList .title{
         width: 95%;
     }

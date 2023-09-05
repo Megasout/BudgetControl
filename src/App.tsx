@@ -7,6 +7,7 @@ import { Helpers } from "./helpers"
 
 import NewBillIcon from "./assets/nuevo.svg"
 import BillsList from "./components/BillsComponents/BillsList"
+import BillsFilter from "./components/BillsComponents/BillsFilter"
 
 function App() {
   const loadBudget: string = JSON.parse(localStorage.getItem('budget') as string ?? '0')
@@ -18,6 +19,7 @@ function App() {
   const [bills, setBills] = useState<Array<BillType>>(loadBills)
   const [billToEddit, setBillToEddit] = useState<BillType | null>(null)
   const [budget, setBudget] = useState<string>(loadBudget)
+  const [filter, setFilter] = useState<string>('All')
 
   useEffect(() => {
     if (billToEddit != null)
@@ -68,23 +70,29 @@ function App() {
   }
 
   return (
-    <div style={modal ? { height: '100vh', overflow: 'hidden' } : {}}>
+
+    <div className="index" style={modal ? { height: '100vh', overflow: 'hidden' } : {}}>
       <Header
         totalBudget={budget}
         spentBudget={Helpers.getSpentBudget(bills)}
         setBudget={(value) => setBudget(value)}
         isSendedBudget={isSendedBudget}
-        setIsSendedBudget={setIsSendedBudget} 
-        resetApp={handleResetApp}/>
+        setIsSendedBudget={setIsSendedBudget}
+        resetApp={handleResetApp} />
 
       {(isSendedBudget) &&
         <>
           <main>
+            <BillsFilter
+              filter={filter}
+              setFilter={setFilter} />
             <BillsList
               bills={bills}
+              filter={filter}
               setBillToEddit={setBillToEddit}
               deleteBill={handleDeleteBill} />
           </main>
+
           <img id="newBill"
             src={NewBillIcon}
             alt="Icono Nuevo Gasto"
